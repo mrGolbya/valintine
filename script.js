@@ -5,18 +5,7 @@ let buttonYesFontSize = 2;
 let buttonNoFontSize = 2;
 let counter = 0
 
-let i = 0;
-let txt = 'Lorem ipsum typing effect!'; /* Текст */
-let speed = 50; /* Скорость/длительность эффекта в миллисекундах */
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("demo").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-typeWriter()
 
 buttonNo.addEventListener('click', (e) => {
     doYesMore();
@@ -52,7 +41,10 @@ document.querySelector('.images img').src = 'https://thumbs.dreamstime.com/b/%D0
 }
 
 function buttonYesPushed (){
-    document.querySelector('h1').textContent = 'Я тебя люблю'
+    // document.querySelector('h1').remove()
+    document.body.insertAdjacentHTML('afterbegin',`<div class="typewriter"><p>tydjyjcghjgyjgy</p></div>`)
+    document.querySelector('.typewriter p').style.animationPlayState = 'running'
+    // document.querySelector('.typewriter').textContent = 'rrrrrrrrrrrrrrrrrr'
     document.querySelector('.buttons').innerHTML =''
     document.body.insertAdjacentHTML('beforeBegin',`<div class="heart"></div>
     <div class="heart"></div>
