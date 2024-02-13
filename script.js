@@ -23,10 +23,10 @@ function typeWriter() {
 
 buttonNo.addEventListener('click', (e) => {
     doYesMore();
-    
+    img.style.animationPlayState = 'paused'
     if(e.target){
         ++counter
-        img.style.animationPlayState = 'paused'
+        
     }
     if(counter== '1'){
         img.classList.add('shadow')
@@ -51,6 +51,7 @@ buttonYes.addEventListener('click', function () {
 });
 
 function doYesMore () {
+    
     buttonYesFontSize += .6;
     buttonYes.style.fontSize = buttonYesFontSize + 'em';
 
@@ -61,6 +62,7 @@ function doYesMore () {
 
 function buttonYesPushed (){
     // document.querySelector('h1').remove()
+    img.style.animationPlayState = 'paused'
     document.querySelector('.buttons').innerHTML =''
     document.querySelector('.images img').src = 'images/4.jpg'
     typeWriter()
