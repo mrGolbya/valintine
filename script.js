@@ -1,29 +1,48 @@
 const buttonYes = document.querySelector('.yes');
 const buttonNo = document.querySelector('.no');
+const img = document.querySelector('img')
+
+img.style.animationPlayState = 'running'
+
 
 let buttonYesFontSize = 2;
 let buttonNoFontSize = 2;
 let counter = 0
 
+let i = 0;
+let txt = `Это моё необычное признание в любви, люблю тебя моя Настюша`; /* Текст */
+let speed = 60; /* Скорость/длительность эффекта в миллисекундах */
 
+function typeWriter() {
+  if (i < txt.length) {
+    document.querySelector('.demo p').textContent += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
 
 buttonNo.addEventListener('click', (e) => {
     doYesMore();
+    
     if(e.target){
         ++counter
+        img.style.animationPlayState = 'paused'
     }
     if(counter== '1'){
-        document.querySelector('h1').textContent = 'Я тебя люблю'
+        img.classList.add('shadow')
+        img.src = 'images/1.jpg'
+
+        
+
     }
     if(counter== '2'){
-        console.log(2)
+        img.src = 'images/2.jpg'
     }
-    if(counter== '9'){
+    if(counter== '3'){
+        img.src = 'images/3.jpg'
         buttonNo.remove()
     }
-    if(counter== '10'){
-        buttonNo.remove()
-    }
+    
     
 });
 
@@ -32,20 +51,19 @@ buttonYes.addEventListener('click', function () {
 });
 
 function doYesMore () {
-    buttonYesFontSize += .4;
+    buttonYesFontSize += .6;
     buttonYes.style.fontSize = buttonYesFontSize + 'em';
 
-    buttonNoFontSize -= .2;
+    buttonNoFontSize -= .3;
     buttonNo.style.fontSize = buttonNoFontSize + 'em';
-document.querySelector('.images img').src = 'https://thumbs.dreamstime.com/b/%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D1%82%D0%BE%D0%B5-%D1%81%D0%B5%D1%80%D0%B4%D1%86%D0%B5-%D1%81-svg-jpg-valentines-%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%BE%D0%B5-doodle-%D1%81%D0%B5%D1%80%D0%B4%D0%B5%D1%87%D0%BA%D0%BE-%D0%BA%D0%B8%D1%81%D1%82%D1%8C-%D1%81%D0%B2%D0%B8-%D0%B8-%D0%B8%D0%B8%D0%B0%D0%B8%D0%B8%D0%B8%D0%B8-229451473.jpg'
+    
 }
 
 function buttonYesPushed (){
     // document.querySelector('h1').remove()
-    document.body.insertAdjacentHTML('afterbegin',`<div class="typewriter"><p>tydjyjcghjgyjgy</p></div>`)
-    document.querySelector('.typewriter p').style.animationPlayState = 'running'
-    // document.querySelector('.typewriter').textContent = 'rrrrrrrrrrrrrrrrrr'
     document.querySelector('.buttons').innerHTML =''
+    document.querySelector('.images img').src = 'images/4.jpg'
+    typeWriter()
     document.body.insertAdjacentHTML('beforeBegin',`<div class="heart"></div>
     <div class="heart"></div>
     <div class="heart"></div>
