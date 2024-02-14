@@ -8,7 +8,7 @@
 } */
 @font-face {
   font-family: "LeoHand";
-  src: url("/fonts/ofont.ru_LeoHand.ttf");
+  src: url("./fonts/ofont.ru_LeoHand.ttf");
   font-style: normal;
   font-weight: light;
   font-display: swap;
